@@ -21,7 +21,11 @@ jobs:
 
       - name: Executar Testes de Performance
         run: |
-          jmeter -n -t testes/performance.jmx -l resultados.jtl -e -o relatorios
+          # Executando o JMeter para rodar os testes de performance
+          jmeter -n -t testes/performance.jmx -l resultados.jtl
+          
+          # Gerando o relatório em HTML
+          jmeter -g resultados.jtl -o relatorios
 
       - name: Upload dos resultados
         uses: actions/upload-artifact@v4
