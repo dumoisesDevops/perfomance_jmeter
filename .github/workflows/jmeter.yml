@@ -1,0 +1,30 @@
+name: JMeter Performance Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar JMeter
+        run: |
+          sudo apt update
+          sudo apt install -y jmeter
+
+      - name: Executar Testes de Performance
+        run: |
+          jmeter -n -t testes/performance.jmx -l resultados.jtl -e -o relatorios
+
+      - name: Upload dos resultados
+        uses: actions/upload-artifact@v3
+        with:
+          name: relatorio-jmeter
+          path: relatorios
