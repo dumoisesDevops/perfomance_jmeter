@@ -25,11 +25,11 @@ jobs:
 
       - name: Verificar se o arquivo .jmx existe
         run: |
-          ls -l "Teste perfomance - Guia moteis .jmx" || echo "Arquivo não encontrado"
+          ls -l "Testeperfomance-Guia moteis .jmx" || echo "Arquivo não encontrado"
           
       - name: Executar Testes de Performance
         run: |
-          jmeter -n -t "Teste perfomance - Guia moteis .jmx" -l resultados.jtl
+          jmeter -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
           mkdir -p relatorios
           jmeter -g resultados.jtl -o relatorios
 
