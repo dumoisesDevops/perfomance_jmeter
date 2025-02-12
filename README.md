@@ -1,4 +1,4 @@
-# Plano de Teste: Teste de Performance - JSONPlaceholder
+# Plano de Teste: Teste de Performance
 
 ## Thread Groups (Grupos de Usuários Simulados)
 
