@@ -14,19 +14,11 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Listar arquivos do repositório
-        run: |
-          ls -l
-
       - name: Instalar JMeter
         run: |
           sudo apt update
           sudo apt install -y jmeter
 
-      - name: Verificar se o arquivo .jmx existe
-        run: |
-          ls -l "Testeperfomance-Guia moteis .jmx" || echo "Arquivo não encontrado"
-          
       - name: Executar Testes de Performance
         run: |
           jmeter -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
