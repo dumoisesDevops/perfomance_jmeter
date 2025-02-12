@@ -23,6 +23,9 @@ jobs:
         run: |
           jmeter -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
           mkdir -p relatorios
+          
+          # Gerar o relatório em HTML sem usar -g
+          jmeter -Jjmeter.save.saveservice.output_format=xml -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
           jmeter -g resultados.jtl -o relatorios
 
       - name: Upload dos resultados
