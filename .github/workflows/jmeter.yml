@@ -19,15 +19,14 @@ jobs:
           sudo apt update
           sudo apt install -y jmeter
 
+      - name: Verificar se o arquivo .jmx existe
+        run: |
+          ls -l "Teste performance - Guia moteis.jmx" || echo "Arquivo não encontrado"
+          
       - name: Executar Testes de Performance
         run: |
-          # Executando o JMeter para rodar os testes de performance
           jmeter -n -t "Teste performance - Guia moteis.jmx" -l resultados.jtl
-          
-          # Criando o diretório 'relatorios' caso não exista
           mkdir -p relatorios
-          
-          # Gerando o relatório em HTML
           jmeter -g resultados.jtl -o relatorios
 
       - name: Upload dos resultados
