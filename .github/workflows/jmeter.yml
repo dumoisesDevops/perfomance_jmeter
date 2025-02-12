@@ -22,7 +22,10 @@ jobs:
       - name: Executar Testes de Performance
         run: |
           # Executando o JMeter para rodar os testes de performance
-          jmeter -n -t testes/performance.jmx -l resultados.jtl
+          jmeter -n -t "Teste performance - Guia moteis.jmx" -l resultados.jtl
+          
+          # Criando o diretório 'relatorios' caso não exista
+          mkdir -p relatorios
           
           # Gerando o relatório em HTML
           jmeter -g resultados.jtl -o relatorios
