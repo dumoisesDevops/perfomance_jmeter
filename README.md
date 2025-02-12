@@ -39,9 +39,18 @@
 - **Caminho**: /users?id=' OR 1=1 --
 - **Método**: GET
 
+## Extração de Dados
+- **Ferramentas Utilizadas**: Prometheus e Grafana
+- **Objetivo**: Coletar métricas de performance durante os testes de carga, stress e segurança.
+  - **Prometheus**: Para monitorar a performance do sistema, como tempo de resposta e taxa de erro.
+  - **Grafana**: Para visualização em tempo real das métricas extraídas pelo Prometheus.
+
+## Exportação de Dados
+- **Formato de Exportação**: CSV
+- **Objetivo**: Exportar os dados coletados durante os testes para análise posterior, como tempos de resposta, taxa de erro e uso de recursos.
+
 ## O que esses testes fazem?
 
 - **Carga (500 usuários)**: Simula um número considerável de acessos simultâneos para verificar a estabilidade do sistema.
 - **Stress (1000 usuários até falha)**: Testa os limites do servidor para entender até que ponto ele aguenta.
 - **Segurança (DDoS e SQL Injection)**: Verifica se o sistema está vulnerável a ataques de negação de serviço (DDoS) e injeções SQL.
-
