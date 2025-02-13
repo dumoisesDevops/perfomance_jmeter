@@ -22,11 +22,13 @@ jobs:
       - name: Executar Testes de Performance
         run: |
           jmeter -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
-          mkdir -p relatorios
           
-          # Gerar o relatório em HTML sem usar -g
+          # Gerando o relatório com o formato XML
+          mkdir -p relatorios
           jmeter -Jjmeter.save.saveservice.output_format=xml -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl
-          jmeter -g resultados.jtl -o relatorios
+
+          # Usando a ferramenta de JMeter para gerar um relatório em HTML
+          jmeter -n -t "Testeperfomance-Guia moteis .jmx" -l resultados.jtl -e -o relatorios
 
       - name: Upload dos resultados
         uses: actions/upload-artifact@v4
